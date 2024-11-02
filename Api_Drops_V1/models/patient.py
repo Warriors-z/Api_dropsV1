@@ -26,14 +26,14 @@ def get_patient_by_id(patient_id):
     db.close()
     return patient
 
-def create_patient(name, last_name, second_last_name, birth_date, ci, user_id):
+def create_patient(patient):
     db = get_db_connection()
     cursor = db.cursor()
     try:
         cursor.execute("""
                     INSERT INTO Person(name,lastName,secondLastName,birthDate, ci, userID)
                     VALUES (%s,%s,%s,%s,%s,%s)
-                    """,(name,last_name,second_last_name,birth_date,ci,user_id,))
+                    """,(patient.name,patient.last_name,patient.second_last_name,patient.birth_date,patient.ci,patient.user_id,))
         db.commit()
     except Exception as e:
         db.rollback()

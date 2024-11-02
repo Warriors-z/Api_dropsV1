@@ -1,4 +1,5 @@
 from flask import abort, jsonify, request
+from ..models.dtos.patient_dto import Patient
 from ..models.patient import (
     get_all_patients,
     get_patient_by_id,
@@ -35,9 +36,11 @@ def inser_patient():
     if not all([name, last_name, birth_date, ci, user_id]):
         abort(400,description="Error: Faltan datos necesarios para la creacion del Paciente.")
 
-    patient = create_patient(name, last_name, second_last_name, birth_date, ci, user_id)
+    patient = Patient(name, last_name, second_last_name, birth_date, ci, user_id)
 
-    if not patient:
+    newPatient = create_patient(patient)
+
+    if not newPatient:
         abort(500, description="Error: Fallo interno del servidor durante la creacion del paciente.")
     return jsonify({
         "message": "Creacion de Paciente Exitoso!"
@@ -59,6 +62,8 @@ def edit_patient():
 
     if not all([patient_id, name, last_name, birth_date, ci, user_id]):
         abort(400,description="Error: Faltan datos necesarios para la edicion del Paciente.")
+
+    patients = Patient(name, last_name, second_last_name, birth_date, ci, user_id)
 
     patient = update_patient(patient_id, name, last_name, second_last_name, birth_date, ci, user_id)
 
