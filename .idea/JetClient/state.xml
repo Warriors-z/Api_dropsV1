@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JetClientState">
+    <option name="draftsState">
+      <draftsState>
+        <option name="requests">
+          <list>
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  &quot;name&quot;: &quot;Juanito&quot;,&#10;  &quot;last_name&quot;: &quot;Perezito&quot;,&#10;  &quot;second_last_name&quot;: &quot;Cocoloco&quot;,&#10;  &quot;phone&quot;: &quot;12345678&quot;,&#10;  &quot;email&quot;: &quot;mendezchambihenri@gmail.com&quot;,&#10;  &quot;address&quot;: &quot;Que te importa.&quot;,&#10;  &quot;birth_date&quot;: &quot;2002-08-07 14:30:00&quot;,&#10;  &quot;genre&quot;: &quot;H&quot;,&#10;  &quot;ci&quot;: &quot;56434245&quot;,&#10;  &quot;role_id&quot;: 2&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="id" value="89f1e198-3400-4ddb-a436-6462696b229d" />
+              <option name="method" value="POST" />
+              <option name="name" value="Draft" />
+              <option name="url" value="http://127.0.0.1:5000/api/user/create" />
+            </requestState>
+          </list>
+        </option>
+      </draftsState>
+    </option>
+    <option name="id" value="d439cb7f-57f9-42ed-9d46-68b4ae0ef22a" />
+    <option name="version" value="4" />
+  </component>
+</project>

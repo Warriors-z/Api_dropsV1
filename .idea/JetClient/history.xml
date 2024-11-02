@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="History">
+    <option name="requestHistoryStates">
+      <list>
+        <requestHistoryState>
+          <option name="dateTime" value="1730498614529" />
+          <option name="id" value="81b28ed8-d401-435a-9c22-77639c15b86b" />
+          <option name="request">
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  &quot;name&quot;: &quot;Juanito&quot;,&#10;  &quot;last_name&quot;: &quot;Perez&quot;,&#10;  &quot;second_last_name&quot;: &quot;Cocoloco&quot;,&#10;  &quot;phone&quot;: &quot;12345678&quot;,&#10;  &quot;email&quot;: &quot;mendezchambihenri@gmail.com&quot;,&#10;  &quot;address&quot;: &quot;Aqui vivo yho&quot;,&#10;  &quot;birth_date&quot;: &quot;2002-08-07 14:30:00&quot;,&#10;  &quot;genre&quot;: &quot;H&quot;,&#10;  &quot;ci&quot;: &quot;56434245&quot;,&#10;  &quot;role_id&quot;: 2&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="id" value="89f1e198-3400-4ddb-a436-6462696b229d" />
+              <option name="method" value="POST" />
+              <option name="name" value="Draft" />
+              <option name="url" value="http://127.0.0.1:5000/api/user/create" />
+            </requestState>
+          </option>
+          <option name="response">
+            <responseState>
+              <option name="bodyBytesBase64" value="PCFkb2N0eXBlIGh0bWw+CjxodG1sIGxhbmc9ZW4+Cjx0aXRsZT41MDAgSW50ZXJuYWwgU2VydmVyIEVycm9yPC90aXRsZT4KPGgxPkludGVybmFsIFNlcnZlciBFcnJvcjwvaDE+CjxwPkVycm9yOiBGYWxsbyBpbnRlcm5vIGRlbCBzZXJ2aWRvci48L3A+Cg==" />
+              <option name="bodyString" value="&lt;!doctype html&gt;&#10;&lt;html lang=en&gt;&#10;&lt;title&gt;500 Internal Server Error&lt;/title&gt;&#10;&lt;h1&gt;Internal Server Error&lt;/h1&gt;&#10;&lt;p&gt;Error: Fallo interno del servidor.&lt;/p&gt;&#10;" />
+              <option name="code" value="500" />
+              <option name="contentType" value="text/html; charset=utf-8" />
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="Server" />
+                    <option name="value" value="Werkzeug/3.0.4 Python/3.12.5" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Date" />
+                    <option name="value" value="Fri, 01 Nov 2024 22:03:34 GMT" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Type" />
+                    <option name="value" value="text/html; charset=utf-8" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Length" />
+                    <option name="value" value="145" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Access-Control-Allow-Origin" />
+                    <option name="value" value="*" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Connection" />
+                    <option name="value" value="close" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="81b28ed8-d401-435a-9c22-77639c15b86b" />
+              <option name="message" value="Internal Server Error" />
+              <option name="prettyResponseType" value="HTML" />
+              <option name="previewType" value="HTML" />
+              <option name="rawBodyString" value="&lt;!doctype html&gt;&#10;&lt;html lang=en&gt;&#10;&lt;title&gt;500 Internal Server Error&lt;/title&gt;&#10;&lt;h1&gt;Internal Server Error&lt;/h1&gt;&#10;&lt;p&gt;Error: Fallo interno del servidor.&lt;/p&gt;&#10;" />
+              <option name="size" value="145" />
+              <option name="time" value="222" />
+            </responseState>
+          </option>
+          <option name="workspaceId" value="drafts" />
+        </requestHistoryState>
+        <requestHistoryState>
+          <option name="dateTime" value="1730498615258" />
+          <option name="id" value="6f5aaa6e-901d-493d-be44-93c1105f9f64" />
+          <option name="request">
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  &quot;name&quot;: &quot;Juanito&quot;,&#10;  &quot;last_name&quot;: &quot;Perez&quot;,&#10;  &quot;second_last_name&quot;: &quot;Cocoloco&quot;,&#10;  &quot;phone&quot;: &quot;12345678&quot;,&#10;  &quot;email&quot;: &quot;mendezchambihenri@gmail.com&quot;,&#10;  &quot;address&quot;: &quot;Aqui vivo yho&quot;,&#10;  &quot;birth_date&quot;: &quot;2002-08-07 14:30:00&quot;,&#10;  &quot;genre&quot;: &quot;H&quot;,&#10;  &quot;ci&quot;: &quot;56434245&quot;,&#10;  &quot;role_id&quot;: 2&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="id" value="89f1e198-3400-4ddb-a436-6462696b229d" />
+              <option name="method" value="POST" />
+              <option name="name" value="Draft" />
+              <option name="url" value="http://127.0.0.1:5000/api/user/create" />
+            </requestState>
+          </option>
+          <option name="response">
+            <responseState>
+              <option name="bodyBytesBase64" value="PCFkb2N0eXBlIGh0bWw+CjxodG1sIGxhbmc9ZW4+Cjx0aXRsZT41MDAgSW50ZXJuYWwgU2VydmVyIEVycm9yPC90aXRsZT4KPGgxPkludGVybmFsIFNlcnZlciBFcnJvcjwvaDE+CjxwPkVycm9yOiBGYWxsbyBpbnRlcm5vIGRlbCBzZXJ2aWRvci48L3A+Cg==" />
+              <option name="bodyString" value="&lt;!doctype html&gt;&#10;&lt;html lang=en&gt;&#10;&lt;title&gt;500 Internal Server Error&lt;/title&gt;&#10;&lt;h1&gt;Internal Server Error&lt;/h1&gt;&#10;&lt;p&gt;Error: Fallo interno del servidor.&lt;/p&gt;&#10;" />
+              <option name="code" value="500" />
+              <option name="contentType" value="text/html; charset=utf-8" />
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="Server" />
+                    <option name="value" value="Werkzeug/3.0.4 Python/3.12.5" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Date" />
+                    <option name="value" value="Fri, 01 Nov 2024 22:03:35 GMT" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Type" />
+                    <option name="value" value="text/html; charset=utf-8" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Length" />
+                    <option name="value" value="145" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Access-Control-Allow-Origin" />
+                    <option name="value" value="*" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Connection" />
+                    <option name="value" value="close" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="6f5aaa6e-901d-493d-be44-93c1105f9f64" />
+              <option name="message" value="Internal Server Error" />
+              <option name="prettyResponseType" value="HTML" />
+              <option name="previewType" value="HTML" />
+              <option name="rawBodyString" value="&lt;!doctype html&gt;&#10;&lt;html lang=en&gt;&#10;&lt;title&gt;500 Internal Server Error&lt;/title&gt;&#10;&lt;h1&gt;Internal Server Error&lt;/h1&gt;&#10;&lt;p&gt;Error: Fallo interno del servidor.&lt;/p&gt;&#10;" />
+              <option name="size" value="145" />
+              <option name="time" value="219" />
+            </responseState>
+          </option>
+          <option name="workspaceId" value="drafts" />
+        </requestHistoryState>
+        <requestHistoryState>
+          <option name="dateTime" value="1730498641322" />
+          <option name="id" value="29861f7a-703c-45b4-8eea-616645420d97" />
+          <option name="request">
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  &quot;name&quot;: &quot;Juanito&quot;,&#10;  &quot;last_name&quot;: &quot;Perez&quot;,&#10;  &quot;second_last_name&quot;: &quot;Cocoloco&quot;,&#10;  &quot;phone&quot;: &quot;12345678&quot;,&#10;  &quot;email&quot;: &quot;mendezchambihenri@gmail.com&quot;,&#10;  &quot;address&quot;: &quot;Aqui vivo yho&quot;,&#10;  &quot;birth_date&quot;: &quot;2002-08-07 14:30:00&quot;,&#10;  &quot;genre&quot;: &quot;H&quot;,&#10;  &quot;ci&quot;: &quot;56434245&quot;,&#10;  &quot;role_id&quot;: 2&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="id" value="89f1e198-3400-4ddb-a436-6462696b229d" />
+              <option name="method" value="POST" />
+              <option name="name" value="Draft" />
+              <option name="url" value="http://127.0.0.1:5000/api/user/create" />
+            </requestState>
+          </option>
+          <option name="response">
+            <responseState>
+              <option name="bodyBytesBase64" value="PCFkb2N0eXBlIGh0bWw+CjxodG1sIGxhbmc9ZW4+Cjx0aXRsZT41MDAgSW50ZXJuYWwgU2VydmVyIEVycm9yPC90aXRsZT4KPGgxPkludGVybmFsIFNlcnZlciBFcnJvcjwvaDE+CjxwPkVycm9yOiBGYWxsbyBpbnRlcm5vIGRlbCBzZXJ2aWRvci48L3A+Cg==" />
+              <option name="bodyString" value="&lt;!doctype html&gt;&#10;&lt;html lang=en&gt;&#10;&lt;title&gt;500 Internal Server Error&lt;/title&gt;&#10;&lt;h1&gt;Internal Server Error&lt;/h1&gt;&#10;&lt;p&gt;Error: Fallo interno del servidor.&lt;/p&gt;&#10;" />
+              <option name="code" value="500" />
+              <option name="contentType" value="text/html; charset=utf-8" />
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="Server" />
+                    <option name="value" value="Werkzeug/3.0.4 Python/3.12.5" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Date" />
+                    <option name="value" value="Fri, 01 Nov 2024 22:04:01 GMT" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Type" />
+                    <option name="value" value="text/html; charset=utf-8" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Length" />
+                    <option name="value" value="145" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Access-Control-Allow-Origin" />
+                    <option name="value" value="*" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Connection" />
+                    <option name="value" value="close" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="29861f7a-703c-45b4-8eea-616645420d97" />
+              <option name="message" value="Internal Server Error" />
+              <option name="prettyResponseType" value="HTML" />
+              <option name="previewType" value="HTML" />
+              <option name="rawBodyString" value="&lt;!doctype html&gt;&#10;&lt;html lang=en&gt;&#10;&lt;title&gt;500 Internal Server Error&lt;/title&gt;&#10;&lt;h1&gt;Internal Server Error&lt;/h1&gt;&#10;&lt;p&gt;Error: Fallo interno del servidor.&lt;/p&gt;&#10;" />
+              <option name="size" value="145" />
+              <option name="time" value="313" />
+            </responseState>
+          </option>
+          <option name="workspaceId" value="drafts" />
+        </requestHistoryState>
+        <requestHistoryState>
+          <option name="dateTime" value="1730498702804" />
+          <option name="id" value="9b4a927e-1e42-4ee2-a959-ef41a0cb9895" />
+          <option name="request">
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  &quot;name&quot;: &quot;Juanito&quot;,&#10;  &quot;last_name&quot;: &quot;Perezito&quot;,&#10;  &quot;second_last_name&quot;: &quot;Cocoloco&quot;,&#10;  &quot;phone&quot;: &quot;12345678&quot;,&#10;  &quot;email&quot;: &quot;mendezchambihenri@gmail.com&quot;,&#10;  &quot;address&quot;: &quot;Aqui vivo yho&quot;,&#10;  &quot;birth_date&quot;: &quot;2002-08-07 14:30:00&quot;,&#10;  &quot;genre&quot;: &quot;H&quot;,&#10;  &quot;ci&quot;: &quot;56434245&quot;,&#10;  &quot;role_id&quot;: 2&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="id" value="89f1e198-3400-4ddb-a436-6462696b229d" />
+              <option name="method" value="POST" />
+              <option name="name" value="Draft" />
+              <option name="url" value="http://127.0.0.1:5000/api/user/create" />
+            </requestState>
+          </option>
+          <option name="response">
+            <responseState>
+              <option name="bodyBytesBase64" value="PCFkb2N0eXBlIGh0bWw+CjxodG1sIGxhbmc9ZW4+Cjx0aXRsZT41MDAgSW50ZXJuYWwgU2VydmVyIEVycm9yPC90aXRsZT4KPGgxPkludGVybmFsIFNlcnZlciBFcnJvcjwvaDE+CjxwPkVycm9yOiBGYWxsbyBpbnRlcm5vIGRlbCBzZXJ2aWRvci48L3A+Cg==" />
+              <option name="bodyString" value="&lt;!doctype html&gt;&#10;&lt;html lang=en&gt;&#10;&lt;title&gt;500 Internal Server Error&lt;/title&gt;&#10;&lt;h1&gt;Internal Server Error&lt;/h1&gt;&#10;&lt;p&gt;Error: Fallo interno del servidor.&lt;/p&gt;&#10;" />
+              <option name="code" value="500" />
+              <option name="contentType" value="text/html; charset=utf-8" />
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="Server" />
+                    <option name="value" value="Werkzeug/3.0.4 Python/3.12.5" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Date" />
+                    <option name="value" value="Fri, 01 Nov 2024 22:05:02 GMT" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Type" />
+                    <option name="value" value="text/html; charset=utf-8" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Length" />
+                    <option name="value" value="145" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Access-Control-Allow-Origin" />
+                    <option name="value" value="*" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Connection" />
+                    <option name="value" value="close" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="9b4a927e-1e42-4ee2-a959-ef41a0cb9895" />
+              <option name="message" value="Internal Server Error" />
+              <option name="prettyResponseType" value="HTML" />
+              <option name="previewType" value="HTML" />
+              <option name="rawBodyString" value="&lt;!doctype html&gt;&#10;&lt;html lang=en&gt;&#10;&lt;title&gt;500 Internal Server Error&lt;/title&gt;&#10;&lt;h1&gt;Internal Server Error&lt;/h1&gt;&#10;&lt;p&gt;Error: Fallo interno del servidor.&lt;/p&gt;&#10;" />
+              <option name="size" value="145" />
+              <option name="time" value="220" />
+            </responseState>
+          </option>
+          <option name="workspaceId" value="drafts" />
+        </requestHistoryState>
+        <requestHistoryState>
+          <option name="dateTime" value="1730498775380" />
+          <option name="id" value="e24d1348-f8ef-4d07-b530-f0cde06f4177" />
+          <option name="request">
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  &quot;name&quot;: &quot;Juanito&quot;,&#10;  &quot;last_name&quot;: &quot;Perezito&quot;,&#10;  &quot;second_last_name&quot;: &quot;Cocoloco&quot;,&#10;  &quot;phone&quot;: &quot;12345678&quot;,&#10;  &quot;email&quot;: &quot;mendezchambihenri@gmail.com&quot;,&#10;  &quot;address&quot;: &quot;Que te importa.&quot;,&#10;  &quot;birth_date&quot;: &quot;2002-08-07 14:30:00&quot;,&#10;  &quot;genre&quot;: &quot;H&quot;,&#10;  &quot;ci&quot;: &quot;56434245&quot;,&#10;  &quot;role_id&quot;: 2&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="id" value="89f1e198-3400-4ddb-a436-6462696b229d" />
+              <option name="method" value="POST" />
+              <option name="name" value="Draft" />
+              <option name="url" value="http://127.0.0.1:5000/api/user/create" />
+            </requestState>
+          </option>
+          <option name="response">
+            <responseState>
+              <option name="bodyBytesBase64" value="PCFkb2N0eXBlIGh0bWw+CjxodG1sIGxhbmc9ZW4+Cjx0aXRsZT41MDAgSW50ZXJuYWwgU2VydmVyIEVycm9yPC90aXRsZT4KPGgxPkludGVybmFsIFNlcnZlciBFcnJvcjwvaDE+CjxwPkVycm9yOiBGYWxsbyBpbnRlcm5vIGRlbCBzZXJ2aWRvci48L3A+Cg==" />
+              <option name="bodyString" value="&lt;!doctype html&gt;&#10;&lt;html lang=en&gt;&#10;&lt;title&gt;500 Internal Server Error&lt;/title&gt;&#10;&lt;h1&gt;Internal Server Error&lt;/h1&gt;&#10;&lt;p&gt;Error: Fallo interno del servidor.&lt;/p&gt;&#10;" />
+              <option name="code" value="500" />
+              <option name="contentType" value="text/html; charset=utf-8" />
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="Server" />
+                    <option name="value" value="Werkzeug/3.0.4 Python/3.12.5" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Date" />
+                    <option name="value" value="Fri, 01 Nov 2024 22:06:15 GMT" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Type" />
+                    <option name="value" value="text/html; charset=utf-8" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Length" />
+                    <option name="value" value="145" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Access-Control-Allow-Origin" />
+                    <option name="value" value="*" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Connection" />
+                    <option name="value" value="close" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="e24d1348-f8ef-4d07-b530-f0cde06f4177" />
+              <option name="message" value="Internal Server Error" />
+              <option name="prettyResponseType" value="HTML" />
+              <option name="previewType" value="HTML" />
+              <option name="rawBodyString" value="&lt;!doctype html&gt;&#10;&lt;html lang=en&gt;&#10;&lt;title&gt;500 Internal Server Error&lt;/title&gt;&#10;&lt;h1&gt;Internal Server Error&lt;/h1&gt;&#10;&lt;p&gt;Error: Fallo interno del servidor.&lt;/p&gt;&#10;" />
+              <option name="size" value="145" />
+              <option name="time" value="217" />
+            </responseState>
+          </option>
+          <option name="workspaceId" value="drafts" />
+        </requestHistoryState>
+        <requestHistoryState>
+          <option name="dateTime" value="1730498912671" />
+          <option name="id" value="baffd0fc-1b33-4322-b4f4-b6e29e088e86" />
+          <option name="request">
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  &quot;name&quot;: &quot;Juanito&quot;,&#10;  &quot;last_name&quot;: &quot;Perezito&quot;,&#10;  &quot;second_last_name&quot;: &quot;Cocoloco&quot;,&#10;  &quot;phone&quot;: &quot;12345678&quot;,&#10;  &quot;email&quot;: &quot;mendezchambihenri@gmail.com&quot;,&#10;  &quot;address&quot;: &quot;Que te importa.&quot;,&#10;  &quot;birth_date&quot;: &quot;2002-08-07 14:30:00&quot;,&#10;  &quot;genre&quot;: &quot;H&quot;,&#10;  &quot;ci&quot;: &quot;56434245&quot;,&#10;  &quot;role_id&quot;: 2&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="id" value="89f1e198-3400-4ddb-a436-6462696b229d" />
+              <option name="method" value="POST" />
+              <option name="name" value="Draft" />
+              <option name="url" value="http://127.0.0.1:5000/api/user/create" />
+            </requestState>
+          </option>
+          <option name="response">
+            <responseState>
+              <option name="bodyBytesBase64" value="PCFkb2N0eXBlIGh0bWw+CjxodG1sIGxhbmc9ZW4+Cjx0aXRsZT41MDAgSW50ZXJuYWwgU2VydmVyIEVycm9yPC90aXRsZT4KPGgxPkludGVybmFsIFNlcnZlciBFcnJvcjwvaDE+CjxwPkVycm9yOiBGYWxsbyBpbnRlcm5vIGRlbCBzZXJ2aWRvci48L3A+Cg==" />
+              <option name="bodyString" value="&lt;!doctype html&gt;&#10;&lt;html lang=en&gt;&#10;&lt;title&gt;500 Internal Server Error&lt;/title&gt;&#10;&lt;h1&gt;Internal Server Error&lt;/h1&gt;&#10;&lt;p&gt;Error: Fallo interno del servidor.&lt;/p&gt;&#10;" />
+              <option name="code" value="500" />
+              <option name="contentType" value="text/html; charset=utf-8" />
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="Server" />
+                    <option name="value" value="Werkzeug/3.0.4 Python/3.12.5" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Date" />
+                    <option name="value" value="Fri, 01 Nov 2024 22:08:32 GMT" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Type" />
+                    <option name="value" value="text/html; charset=utf-8" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Length" />
+                    <option name="value" value="145" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Access-Control-Allow-Origin" />
+                    <option name="value" value="*" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Connection" />
+                    <option name="value" value="close" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="baffd0fc-1b33-4322-b4f4-b6e29e088e86" />
+              <option name="message" value="Internal Server Error" />
+              <option name="prettyResponseType" value="HTML" />
+              <option name="previewType" value="HTML" />
+              <option name="rawBodyString" value="&lt;!doctype html&gt;&#10;&lt;html lang=en&gt;&#10;&lt;title&gt;500 Internal Server Error&lt;/title&gt;&#10;&lt;h1&gt;Internal Server Error&lt;/h1&gt;&#10;&lt;p&gt;Error: Fallo interno del servidor.&lt;/p&gt;&#10;" />
+              <option name="size" value="145" />
+              <option name="time" value="324" />
+            </responseState>
+          </option>
+          <option name="workspaceId" value="drafts" />
+        </requestHistoryState>
+        <requestHistoryState>
+          <option name="dateTime" value="1730499007157" />
+          <option name="id" value="82bffe88-de51-4dfe-814c-a702d426953a" />
+          <option name="request">
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  &quot;name&quot;: &quot;Juanito&quot;,&#10;  &quot;last_name&quot;: &quot;Perezito&quot;,&#10;  &quot;second_last_name&quot;: &quot;Cocoloco&quot;,&#10;  &quot;phone&quot;: &quot;12345678&quot;,&#10;  &quot;email&quot;: &quot;mendezchambihenri@gmail.com&quot;,&#10;  &quot;address&quot;: &quot;Que te importa.&quot;,&#10;  &quot;birth_date&quot;: &quot;2002-08-07 14:30:00&quot;,&#10;  &quot;genre&quot;: &quot;H&quot;,&#10;  &quot;ci&quot;: &quot;56434245&quot;,&#10;  &quot;role_id&quot;: 2&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="id" value="89f1e198-3400-4ddb-a436-6462696b229d" />
+              <option name="method" value="POST" />
+              <option name="name" value="Draft" />
+              <option name="url" value="http://127.0.0.1:5000/api/user/create" />
+            </requestState>
+          </option>
+          <option name="response">
+            <responseState>
+              <option name="bodyBytesBase64" value="PCFkb2N0eXBlIGh0bWw+CjxodG1sIGxhbmc9ZW4+Cjx0aXRsZT41MDAgSW50ZXJuYWwgU2VydmVyIEVycm9yPC90aXRsZT4KPGgxPkludGVybmFsIFNlcnZlciBFcnJvcjwvaDE+CjxwPkVycm9yOiBGYWxsbyBpbnRlcm5vIGRlbCBzZXJ2aWRvci48L3A+Cg==" />
+              <option name="bodyString" value="&lt;!doctype html&gt;&#10;&lt;html lang=en&gt;&#10;&lt;title&gt;500 Internal Server Error&lt;/title&gt;&#10;&lt;h1&gt;Internal Server Error&lt;/h1&gt;&#10;&lt;p&gt;Error: Fallo interno del servidor.&lt;/p&gt;&#10;" />
+              <option name="code" value="500" />
+              <option name="contentType" value="text/html; charset=utf-8" />
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="Server" />
+                    <option name="value" value="Werkzeug/3.0.4 Python/3.12.5" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Date" />
+                    <option name="value" value="Fri, 01 Nov 2024 22:10:07 GMT" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Type" />
+                    <option name="value" value="text/html; charset=utf-8" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Length" />
+                    <option name="value" value="145" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Access-Control-Allow-Origin" />
+                    <option name="value" value="*" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Connection" />
+                    <option name="value" value="close" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="82bffe88-de51-4dfe-814c-a702d426953a" />
+              <option name="message" value="Internal Server Error" />
+              <option name="prettyResponseType" value="HTML" />
+              <option name="previewType" value="HTML" />
+              <option name="rawBodyString" value="&lt;!doctype html&gt;&#10;&lt;html lang=en&gt;&#10;&lt;title&gt;500 Internal Server Error&lt;/title&gt;&#10;&lt;h1&gt;Internal Server Error&lt;/h1&gt;&#10;&lt;p&gt;Error: Fallo interno del servidor.&lt;/p&gt;&#10;" />
+              <option name="size" value="145" />
+              <option name="time" value="319" />
+            </responseState>
+          </option>
+          <option name="workspaceId" value="drafts" />
+        </requestHistoryState>
+        <requestHistoryState>
+          <option name="dateTime" value="1730499039788" />
+          <option name="id" value="1fd1b5f9-6a93-4840-8608-93071388413c" />
+          <option name="request">
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  &quot;name&quot;: &quot;Juanito&quot;,&#10;  &quot;last_name&quot;: &quot;Perezito&quot;,&#10;  &quot;second_last_name&quot;: &quot;Cocoloco&quot;,&#10;  &quot;phone&quot;: &quot;12345678&quot;,&#10;  &quot;email&quot;: &quot;mendezchambihenri@gmail.com&quot;,&#10;  &quot;address&quot;: &quot;Que te importa.&quot;,&#10;  &quot;birth_date&quot;: &quot;2002-08-07 14:30:00&quot;,&#10;  &quot;genre&quot;: &quot;H&quot;,&#10;  &quot;ci&quot;: &quot;56434245&quot;,&#10;  &quot;role_id&quot;: 2&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="id" value="89f1e198-3400-4ddb-a436-6462696b229d" />
+              <option name="method" value="POST" />
+              <option name="name" value="Draft" />
+              <option name="url" value="http://127.0.0.1:5000/api/user/create" />
+            </requestState>
+          </option>
+          <option name="response">
+            <responseState>
+              <option name="bodyBytesBase64" value="ewogICJtZXNzYWdlIjogIkNyZWFjaW9uIGV4aXRvc2EgZGVsIFVzdWFyaW8uIgp9Cg==" />
+              <option name="bodyString" value="{&#10;  &quot;message&quot;: &quot;Creacion exitosa del Usuario.&quot;&#10;}" />
+              <option name="code" value="201" />
+              <option name="contentType" value="application/json" />
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="Server" />
+                    <option name="value" value="Werkzeug/3.0.4 Python/3.12.5" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Date" />
+                    <option name="value" value="Fri, 01 Nov 2024 22:10:39 GMT" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Type" />
+                    <option name="value" value="application/json" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Length" />
+                    <option name="value" value="49" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Access-Control-Allow-Origin" />
+                    <option name="value" value="*" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Connection" />
+                    <option name="value" value="close" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="1fd1b5f9-6a93-4840-8608-93071388413c" />
+              <option name="message" value="Created" />
+              <option name="prettyResponseType" value="JSON" />
+              <option name="rawBodyString" value="{&#10;  &quot;message&quot;: &quot;Creacion exitosa del Usuario.&quot;&#10;}&#10;" />
+              <option name="size" value="49" />
+              <option name="time" value="4251" />
+            </responseState>
+          </option>
+          <option name="workspaceId" value="drafts" />
+        </requestHistoryState>
+        <requestHistoryState>
+          <option name="dateTime" value="1730499321080" />
+          <option name="id" value="8a038415-438c-44b0-9e0f-30c48ff7b569" />
+          <option name="request">
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  &quot;name&quot;: &quot;Juanito&quot;,&#10;  &quot;last_name&quot;: &quot;Perezito&quot;,&#10;  &quot;second_last_name&quot;: &quot;Cocoloco&quot;,&#10;  &quot;phone&quot;: &quot;12345678&quot;,&#10;  &quot;email&quot;: &quot;mendezchambihenri@gmail.com&quot;,&#10;  &quot;address&quot;: &quot;Que te importa.&quot;,&#10;  &quot;birth_date&quot;: &quot;2002-08-07 14:30:00&quot;,&#10;  &quot;genre&quot;: &quot;H&quot;,&#10;  &quot;ci&quot;: &quot;56434245&quot;,&#10;  &quot;role_id&quot;: 2&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="id" value="89f1e198-3400-4ddb-a436-6462696b229d" />
+              <option name="method" value="POST" />
+              <option name="name" value="Draft" />
+              <option name="url" value="http://127.0.0.1:5000/api/user/create" />
+            </requestState>
+          </option>
+          <option name="response">
+            <responseState>
+              <option name="bodyBytesBase64" value="ewogICJtZXNzYWdlIjogIkNyZWFjaW9uIGV4aXRvc2EgZGVsIFVzdWFyaW8uIgp9Cg==" />
+              <option name="bodyString" value="{&#10;  &quot;message&quot;: &quot;Creacion exitosa del Usuario.&quot;&#10;}" />
+              <option name="code" value="201" />
+              <option name="contentType" value="application/json" />
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="Server" />
+                    <option name="value" value="Werkzeug/3.0.4 Python/3.12.5" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Date" />
+                    <option name="value" value="Fri, 01 Nov 2024 22:15:21 GMT" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Type" />
+                    <option name="value" value="application/json" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Length" />
+                    <option name="value" value="49" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Access-Control-Allow-Origin" />
+                    <option name="value" value="*" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Connection" />
+                    <option name="value" value="close" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="8a038415-438c-44b0-9e0f-30c48ff7b569" />
+              <option name="message" value="Created" />
+              <option name="prettyResponseType" value="JSON" />
+              <option name="rawBodyString" value="{&#10;  &quot;message&quot;: &quot;Creacion exitosa del Usuario.&quot;&#10;}&#10;" />
+              <option name="size" value="49" />
+              <option name="time" value="3068" />
+            </responseState>
+          </option>
+          <option name="workspaceId" value="drafts" />
+        </requestHistoryState>
+        <requestHistoryState>
+          <option name="dateTime" value="1730499422173" />
+          <option name="id" value="ca25cc4a-e015-4668-8bf5-8a5b82f18ddd" />
+          <option name="request">
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  &quot;name&quot;: &quot;Juanito&quot;,&#10;  &quot;last_name&quot;: &quot;Perezito&quot;,&#10;  &quot;second_last_name&quot;: &quot;Cocoloco&quot;,&#10;  &quot;phone&quot;: &quot;12345678&quot;,&#10;  &quot;email&quot;: &quot;mendezchambihenri@gmail.com&quot;,&#10;  &quot;address&quot;: &quot;Que te importa.&quot;,&#10;  &quot;birth_date&quot;: &quot;2002-08-07 14:30:00&quot;,&#10;  &quot;genre&quot;: &quot;H&quot;,&#10;  &quot;ci&quot;: &quot;56434245&quot;,&#10;  &quot;role_id&quot;: 2&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="id" value="89f1e198-3400-4ddb-a436-6462696b229d" />
+              <option name="method" value="POST" />
+              <option name="name" value="Draft" />
+              <option name="url" value="http://127.0.0.1:5000/api/user/create" />
+            </requestState>
+          </option>
+          <option name="response">
+            <responseState>
+              <option name="bodyBytesBase64" value="ewogICJtZXNzYWdlIjogIkNyZWFjaW9uIGV4aXRvc2EgZGVsIFVzdWFyaW8uIgp9Cg==" />
+              <option name="bodyString" value="{&#10;  &quot;message&quot;: &quot;Creacion exitosa del Usuario.&quot;&#10;}" />
+              <option name="code" value="201" />
+              <option name="contentType" value="application/json" />
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="Server" />
+                    <option name="value" value="Werkzeug/3.0.4 Python/3.12.5" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Date" />
+                    <option name="value" value="Fri, 01 Nov 2024 22:17:02 GMT" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Type" />
+                    <option name="value" value="application/json" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Content-Length" />
+                    <option name="value" value="49" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Access-Control-Allow-Origin" />
+                    <option name="value" value="*" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Connection" />
+                    <option name="value" value="close" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="ca25cc4a-e015-4668-8bf5-8a5b82f18ddd" />
+              <option name="message" value="Created" />
+              <option name="prettyResponseType" value="JSON" />
+              <option name="rawBodyString" value="{&#10;  &quot;message&quot;: &quot;Creacion exitosa del Usuario.&quot;&#10;}&#10;" />
+              <option name="size" value="49" />
+              <option name="time" value="2753" />
+            </responseState>
+          </option>
+          <option name="workspaceId" value="drafts" />
+        </requestHistoryState>
+      </list>
+    </option>
+  </component>
+</project>
