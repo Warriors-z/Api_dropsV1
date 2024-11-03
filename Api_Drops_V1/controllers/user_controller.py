@@ -11,6 +11,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from dotenv import load_dotenv
 from ..schemas.login_schema import LoginSchema, ValidationError
+from ..schemas.user_schema import UserInsertSchema, UserUpdateSchema, ValidationError
 from ..models.dtos.user_dto import User
 from ..models.user import (
     get_all_users,
@@ -19,6 +20,7 @@ from ..models.user import (
     update_user,
     delete_user,
     check_credentials,
+    check_exists_user,
 )
 
 load_dotenv()
@@ -79,7 +81,6 @@ def verify_credentials():
 
     return jsonify({"message": "Credenciales Inválidas."}), 404
     
-
 # Metodo para generar crendenciales del usuario
 def generate_credentials(name, last_name):
     initials = name[0].lower() + last_name[0].lower()
@@ -201,16 +202,21 @@ def insert_user():
     if not data:
         abort(400, description="Error: No se proporcionaron datos.")
 
-    name = data.get('name')
-    last_name = data.get('last_name')
-    second_last_name = data.get('second_last_name') or None
-    phone = data.get('phone') or None
-    email = data.get('email')
-    address = data.get('address')
-    birth_date = data.get('birth_date')
-    genre = data.get('genre')
-    ci = data.get('ci')
-    role_id = data.get('role_id')
+    try:
+        validated_user_data = UserInsertSchema().load(data)
+    except ValidationError as err:
+        return jsonify(err.messages), 400
+
+    name = validated_user_data['name']
+    last_name = validated_user_data['last_name']
+    second_last_name = validated_user_data['second_last_name'] or None
+    phone = validated_user_data['phone'] or None
+    email = validated_user_data['email']
+    address = validated_user_data['address']
+    birth_date = validated_user_data['birth_date']
+    genre = validated_user_data['genre']
+    ci = validated_user_data['ci']
+    role_id = validated_user_data['role_id']
 
     username, password, password_to_send = generate_credentials(name, last_name)
 
@@ -219,11 +225,14 @@ def insert_user():
 
     user = User(name, last_name, email, address, birth_date, genre, ci, second_last_name, role_id, phone, user_id=None, user_name=username, password=password)
 
+    ci_exists = check_exists_user(ci)
 
-    print(user)
+    if ci_exists is not None: 
+        abort(400, description="El usuario ya está registrado.")
 
     if not create_user(user):
         abort(500, description="Error: Fallo interno del servidor.")
+
     asyncio.run(send_credentials(name, last_name, email, username, password_to_send))
     return jsonify({
         "message": "Creacion exitosa del Usuario."
@@ -235,21 +244,25 @@ def edit_user():
     except Exception as e:
         abort(400, description="Error de formato JSON: " + str(e))
 
-
     if not data:
         abort(400, description="Error: No se proporcionaron datos.")
 
-    user_id = data.get('user_id')
-    name = data.get('name')
-    last_name = data.get('last_name')
-    second_last_name = data.get('second_last_name') or None
-    phone = data.get('phone') or None
-    email = data.get('email')
-    address = data.get('address')
-    birth_date = data.get('birth_date')
-    genre = data.get('genre')
-    role_id = data.get('role_id')
-    ci = data.get('ci')
+    try:
+        validated_user_data = UserUpdateSchema().load(data)
+    except ValidationError as err:
+        return jsonify(err.messages), 400
+
+    user_id = validated_user_data['user_id']
+    name = validated_user_data['name']
+    last_name = validated_user_data['last_name']
+    second_last_name = validated_user_data['second_last_name'] or None
+    phone = validated_user_data['phone'] or None
+    email = validated_user_data['email']
+    address = validated_user_data['address']
+    birth_date = validated_user_data['birth_date']
+    genre = validated_user_data['genre']
+    ci = validated_user_data['ci']
+    role_id = validated_user_data['role_id']
 
     if not all([user_id, name, last_name, second_last_name, phone, email,address, birth_date, ci, role_id]):
         abort(400, description="Error: Faltan datos necesarios para la edicion del Usuario")

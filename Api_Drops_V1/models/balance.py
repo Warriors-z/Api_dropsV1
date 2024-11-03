@@ -1,83 +1,101 @@
 from ..config import get_db_connection
 
 def get_all_balances():
-    db = get_db_connection()
-    cursor = db.cursor(dictionary=True)
-    cursor.execute("""
-                SELECT idBalance, balanceCode, IFNULL(actuallyFactor, 0.0) AS actuallyFactor, registerDate, IFNULL(lastUpdate, 'Sin Cambios') AS lastUpdate, available 
-                FROM balance
-                WHERE status = 1
-                """)
-    balances = cursor.fetchall()
-    cursor.close()
-    db.close()
+    try:
+        db = get_db_connection()
+        with db.cursor(dictionary=True) as cursor:
+            cursor.execute(""" CALL  GetActiveBalances(); """)
+            balances = cursor.fetchall()
+    except Exception as e:
+        print(f"Ocurrio un error: {e}")
+        balances = []
+    finally: 
+        db.close()
+
     return balances
 
 def get_balance_by_id(balance_id):
-    db = get_db_connection()
-    cursor = db.cursor(dictionary=True)
-    cursor.execute("""
-                SELECT idBalance, balanceCode, IFNULL(actuallyFactor, 0.0) AS actuallyFactor, registerDate, IFNULL(lastUpdate, 'Sin Cambios') AS lastUpdate, available 
-                FROM balance
-                WHERE status = 1 AND idBalance = %s
-                """,(balance_id,))
-    balance = cursor.fetchone()
-    cursor.close()
-    db.close()
+    try:
+        db = get_db_connection()
+        with db.cursor(dictionary=True) as cursor:
+            cursor.execute(""" CALL GetBalanceById(%s); """, (balance_id,))
+            balance = cursor.fetchone()
+    except Exception as e:
+        print(f"Ocurrio un error: {e}")
+        balance = None
+    finally:
+        db.close()
+
     return balance
 
-def create_balance(balance_code, user_id):
-    db = get_db_connection()
-    cursor = db.cursor()
+def check_exists_balance(balance_code):
     try:
-        cursor.execute("""
+        db = get_db_connection()
+        with db.cursor() as cursor:
+            cursor.execute("""
+                SELECT balanceCode FROM Balance WHERE balanceCode  = %s
+            """, (balance_code,))
+            result = cursor.fetchall()
+            if result:
+                code_balance = result[0]
+                return code_balance
+            else:
+                return None
+    except Exception as e:
+        print(f"Ocurrió un error: {e}")
+        return None
+    finally:
+        db.close()
+
+def create_balance(balance):
+    try:
+        db = get_db_connection()
+        with db.cursor(dictionary=True) as cursor:
+            cursor.execute("""
                 INSERT INTO Balance (balanceCode, userID)
                 VALUES (%s,%s) 
-                """,(balance_code,user_id,))
+                """,(balance.balance_code,balance.user_id,))
         db.commit()
+        return True
     except Exception as e:
         db.rollback()
-        print(f"Ocurrio un Error:{e}")
+        print(f"Ocurrió un error: {e}")
         return False
     finally:
-        cursor.close()
         db.close()
-    return True
 
-def update_balance(balance_id, balance_code, user_id):
-    db = get_db_connection()
-    cursor = db.cursor()
+def update_balance(balance):
     try:
-        cursor.execute("""
+        db = get_db_connection()
+        with db.cursor(dictionary=True) as cursor:
+            cursor.execute("""
                 UPDATE Balance
                 SET balanceCode = %s, userID = %s, lastUpdate = CURRENT_TIMESTAMP
                 WHERE idBalance = %s 
-                """,(balance_code,user_id,balance_id,))
+                """,(balance.balance_code, balance.user_id, balance.balance_id,))
         db.commit()
+        return True
     except Exception as e:
         db.rollback()
-        print(f"Ocurrio un Error:{e}")
+        print(f"Ocurrió un error: {e}")
         return False
     finally:
-        cursor.close()
         db.close()
-    return True
 
-def delete_balance(balance_id, user_id):
-    db = get_db_connection()
-    cursor = db.cursor()
+def delete_balance(balance):
     try:
-        cursor.execute("""
+        db = get_db_connection()
+        with db.cursor(dictionary=True) as cursor:
+            cursor.execute("""
                     UPDATE Balance
                     SET status = 0, userID = %s, lastUpdate = CURRENT_TIMESTAMP
-                    WHERE idBalance = %s
-                    """,(user_id,balance_id,))
+                    WHERE idBalance = %s AND status = 1
+                    """,(balance.user_id, balance.balance_id,))
         db.commit()
+        return True
     except Exception as e:
         db.rollback()
-        print(f"Ocurrio un Error: {e}")
+        print(f"Ocurrió un error: {e}")
         return False
     finally:
-        cursor.close()
         db.close()
-    return True

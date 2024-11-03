@@ -33,6 +33,10 @@ def create_api_drops():
     from.routes.balance_routes import balance_bp
     api_drops_v1.register_blueprint(balance_bp)
 
+    # Rutas Manillas
+    from.routes.smart_routes import smart_bp
+    api_drops_v1.register_blueprint(smart_bp)
+
     # Rutas Paciente
     from.routes.patient_routes import patient_bp
     api_drops_v1.register_blueprint(patient_bp)

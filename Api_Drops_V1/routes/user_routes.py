@@ -72,18 +72,46 @@ def create_user():
           id: CreateUser
           required:
             - name
+            - last_name
+            - second_last_name
+            - phone
             - email
-            - password
+            - address
+            - birth_date
+            - genre
+            - ci
+            - role_id
           properties:
             name:
               type: string
               description: Nombre del usuario
+            last_name:
+              type: string
+              description: Apellido Paterno del usuario
+            second_last_name:
+              type: string
+              description: Apellido Materno del usuario
+            phone:
+              type: string
+              description: Telefono del usuario
             email:
               type: string
               description: Correo electrónico del usuario
-            password:
+            address:
               type: string
-              description: Contraseña del usuario
+              description: Direccion del usuario
+            birth_date:
+              type: string
+              description: Fecha de nacimiento del usuario
+            genre:
+              type: string
+              description: Genero del usuario
+            ci:
+              type: string
+              description: Carnet de identidad del usuario
+            role_id:
+              type: integer
+              description: Rol del usuario
     responses:
       201:
         description: Usuario creado exitosamente
@@ -99,7 +127,7 @@ def create_user():
 @user_bp.route('/user/update', methods=['PUT'])
 @token_required
 @role_required([1])
-def update_user():
+def modify_user():
     """
     Actualizar un usuario existente
     ---
@@ -114,7 +142,15 @@ def update_user():
           required:
             - user_id
             - name
+            - last_name
+            - second_last_name
+            - phone
             - email
+            - address
+            - birth_date
+            - genre
+            - ci
+            - role_id
           properties:
             user_id:
               type: integer
@@ -122,9 +158,33 @@ def update_user():
             name:
               type: string
               description: Nombre del usuario
+            last_name:
+              type: string
+              description: Apellido Paterno del usuario
+            second_last_name:
+              type: string
+              description: Apellido Materno del usuario
+            phone:
+              type: string
+              description: Telefono del usuario
             email:
               type: string
               description: Correo electrónico del usuario
+            address:
+              type: string
+              description: Direccion del usuario
+            birth_date:
+              type: string
+              description: Fecha de nacimiento del usuario
+            genre:
+              type: string
+              description: Genero del usuario
+            ci:
+              type: string
+              description: Carnet de identidad del usuario
+            role_id:
+              type: integer
+              description: Rol del usuario
     responses:
       200:
         description: Usuario actualizado exitosamente
@@ -137,7 +197,7 @@ def update_user():
     """
     return edit_user()
 
-@user_bp.route('/user/delete/<int:user_id>', methods=['PATCH'])
+@user_bp.route('/user/delete/<int:user_id>', methods=['DELETE'])
 @token_required
 @role_required([1])
 def delete_user(user_id):

@@ -41,12 +41,33 @@ def get_user_by_id(user_id):
 
     return user
 
-def create_user(user):
-    db = get_db_connection()
+def check_exists_user(user_ci):
     try:
+        db = get_db_connection()
+        with db.cursor() as cursor:
+            cursor.execute("""
+                SELECT ci FROM User WHERE ci = %s
+            """, (user_ci,))
+            result = cursor.fetchall()
+            if result:
+                ci = result[0]
+                return ci
+            else:
+                return None
+    except Exception as e:
+        print(f"Ocurrió un error: {e}")
+        return None
+    finally:
+        db.close()
+
+def create_user(user):
+    try:
+        db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
             cursor.execute(
-                """ CALL InsertUser(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) """,
+                """ 
+                CALL InsertUser(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) 
+                """,
                 (user.user_name, user.password, user.name, user.last_name, user.second_last_name,
                 user.phone, user.email, user.address, user.birth_date, user.genre, user.ci, user.role_id)
             )
