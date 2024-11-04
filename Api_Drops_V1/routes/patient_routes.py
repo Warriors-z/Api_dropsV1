@@ -11,8 +11,8 @@ from ..controllers.patient_controller import (
 patient_bp = Blueprint('patient',__name__, url_prefix='/api/v1')
 
 @patient_bp.route('/patients', methods=['GET'])
-@token_required
-@role_required([1, 2])
+#@token_required
+#@role_required([1, 2])
 def get_patients():
     """
     Obtener lista de pacientes

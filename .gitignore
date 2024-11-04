@@ -8,3 +8,5 @@ venv/
 DROPS_V1/
 
 .env
+
+.idea
