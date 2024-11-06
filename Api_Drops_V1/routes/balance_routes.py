@@ -11,8 +11,8 @@ from ..controllers.balance_controller import(
 balance_bp = Blueprint('balance',__name__, url_prefix='/api/v1')
 
 @balance_bp.route('/balances', methods=['GET'])
-@token_required
-@role_required([1])
+#@token_required
+#@role_required([1])
 def get_balances():
     """
     Obtener lista de balanzas
@@ -32,8 +32,8 @@ def get_balances():
     return list_balances()
 
 @balance_bp.route('/balance/byId/<int:balance_id>', methods=['GET'])
-@token_required
-@role_required([1])
+#@token_required
+#@role_required([1])
 def get_balance_by_id(balance_id):
     """
     Obtener balanza por ID
@@ -59,8 +59,8 @@ def get_balance_by_id(balance_id):
     return balance_by_id(balance_id)
 
 @balance_bp.route('/balance/create', methods=['POST'])
-@token_required
-@role_required([1])
+#@token_required
+#@role_required([1])
 def create_balance():
     """
     Crear nueva balanza
@@ -96,8 +96,8 @@ def create_balance():
     return insert_balance()
 
 @balance_bp.route('/balance/update', methods=['PUT'])
-@token_required
-@role_required([1])
+#@token_required
+#@role_required([1])
 def modify_balance():
     """
     Actualizar una balanza existente
@@ -137,8 +137,8 @@ def modify_balance():
     return edit_balance()
 
 @balance_bp.route('/balance/delete', methods=['DELETE'])
-@token_required
-@role_required([1])
+#@token_required
+#@role_required([1])
 def delete_balance():
     """
     Eliminar una balanza existente

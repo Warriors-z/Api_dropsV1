@@ -98,7 +98,7 @@ def remove_balance():
     if not all([balance_id, user_id]):
         abort(400, description="Error: Faltan datos necesarios para la Eliminacion de la Balanza.")
 
-    balance_deleted = Balance(user_id, balance_id)
+    balance_deleted = Balance(None,user_id,None, balance_id)
 
     if not delete_balance(balance_deleted):
         abort(400, description="Error: Fallo en la eliminacion de la Balanza!")
