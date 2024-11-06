@@ -32,8 +32,8 @@ def get_patients():
     return list_patients()
 
 @patient_bp.route('/patient/byId/<int:patient_id>', methods=['GET'])
-@token_required
-@role_required([1, 2])
+#@token_required
+#@role_required([1, 2])
 def get_patient_by_id(patient_id):
     """
     Obtener paciente por ID
@@ -59,8 +59,8 @@ def get_patient_by_id(patient_id):
     return patient_by_id(patient_id)
 
 @patient_bp.route('/patient/create', methods=['POST'])
-@token_required
-@role_required([1,2])
+#@token_required
+#@role_required([1,2])
 def create_patient():
     """
     Crear un nuevo paciente
@@ -116,8 +116,8 @@ def create_patient():
     return inser_patient()
 
 @patient_bp.route('/patient/update', methods=['PUT'])
-@token_required
-@role_required([1,2])
+#@token_required
+#@role_required([1,2])
 def modify_patient():
     """
     Actualizar un paciente existente
@@ -177,9 +177,9 @@ def modify_patient():
     return edit_patient()
 
 @patient_bp.route('/patient/delete', methods=['DELETE'])
-@token_required
-@role_required([1,2])
-def update_patient():
+#@token_required
+#@role_required([1,2])
+def delete_patient():
     """
     Eliminar una paciente existente
     ---

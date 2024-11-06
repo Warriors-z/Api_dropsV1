@@ -86,6 +86,7 @@ def delete_balance(balance):
     try:
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
+            print(balance.user_id, balance.balance_id)
             cursor.execute("""
                     UPDATE Balance
                     SET status = 0, userID = %s, lastUpdate = CURRENT_TIMESTAMP
