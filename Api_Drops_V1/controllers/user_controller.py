@@ -161,7 +161,7 @@ async def send_credentials(name, last_name, destiny_email, username, password):
             </div>
             <div class="footer">
                 <p>Saludos,<br>
-                El equipo de soporte de JAY.DEV</p>
+                El equipo de soporte.</p>
                 <p>Este correo es confidencial y solo debe ser usado por el destinatario.</p>
             </div>
         </div>
