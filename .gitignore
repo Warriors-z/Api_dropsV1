@@ -1,0 +1,13 @@
+# Ignorar carpetas de caché
+__pycache__/
+
+# Ignorar el entorno virtual
+venv/
+
+# Ignorar la carpeta "DROPS_V1" en la raíz del proyecto
+DROPS_V1/
+
+.env
+
+.idea
+.vscode
