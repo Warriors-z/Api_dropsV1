@@ -6,7 +6,8 @@ from ..controllers.user_controller import(
     insert_user,
     edit_user,
     remove_user,
-    verify_credentials
+    verify_credentials,
+    check_exists_user_ci
 )
 
 user_bp = Blueprint('user', __name__, url_prefix='/api/v1')
@@ -29,6 +30,36 @@ def get_users():
         description: Permiso insuficiente
     """
     return list_users()
+
+
+@user_bp.route('/user/checkExist/<string:user_ci>', methods=['GET'])
+#@token_required
+#@role_required([1])
+def verify_exist_ci(user_ci):
+    """
+    Verificar si existe el usuario
+    ---
+    tags:
+      - Usuarios
+    parameters:
+      - name: user_ci
+        in: path
+        type: string
+        required: true
+        description: CI del usuario
+    responses:
+      200:
+        description: Datos del usuario
+      401:
+        description: Token de autenticación no válido
+      403:
+        description: Permiso insuficiente
+      500:
+        description: Error interno del servidor
+      400:
+        description: Fallo en verificacion del usuario
+    """
+    return check_exists_user_ci(user_ci)
 
 @user_bp.route('/user/byId/<int:user_id>', methods=['GET'])
 #@token_required

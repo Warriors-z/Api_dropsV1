@@ -5,7 +5,8 @@ from ..controllers.patient_controller import (
     patient_by_id,
     inser_patient,
     edit_patient,
-    remove_patient
+    remove_patient,
+    check_exists_patient_ci
 )
 
 patient_bp = Blueprint('patient',__name__, url_prefix='/api/v1')
@@ -58,6 +59,34 @@ def get_patient_by_id(patient_id):
     """
     return patient_by_id(patient_id)
 
+@patient_bp.route('/patient/checkExist/<string:patient_ci>', methods=['GET'])
+#@token_required
+#@role_required([1, 2])
+def verify_exist_ci(patient_ci):
+  """
+    Verificar si existe el paciente
+    ---
+    tags:
+      - Pacientes
+    parameters:
+      - name: patient_ci
+        in: path
+        type: string
+        required: true
+        description: CI del paciente
+    responses:
+      200:
+        description: Datos del paciente
+      401:
+        description: Token de autenticación no válido
+      403:
+        description: Permiso insuficiente
+      500:
+        description: Error interno del servidor
+      400:
+        description: Fallo en verificacion del paciente
+    """
+  return check_exists_patient_ci(patient_ci)
 @patient_bp.route('/patient/create', methods=['POST'])
 #@token_required
 #@role_required([1,2])

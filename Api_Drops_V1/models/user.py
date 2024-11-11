@@ -56,7 +56,6 @@ def check_exists_user(user_ci):
                 return None
     except Exception as e:
         print(f"Ocurrió un error: {e}")
-        return None
     finally:
         db.close()
 
@@ -64,6 +63,7 @@ def create_user(user):
     try:
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
+            print(f"el ci es: {user.ci}")
             cursor.execute(
                 """ 
                 CALL InsertUser(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) 
@@ -85,7 +85,7 @@ def update_user(user):
     try:
         with db.cursor(dictionary=True) as cursor:
             cursor.execute(
-                """ CALL UpdateUser(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) """,
+                """ CALL UpdateUserByID(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) """,
                 (user.user_id, user.name, user.last_name, user.second_last_name,
                 user.phone, user.email, user.address, user.birth_date, user.genre, user.ci, user.role_id)
             )

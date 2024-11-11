@@ -12,13 +12,13 @@ from ..models.therapy import (
 
 def list_therapies():
     therapies = get_all_therapies()
-    print(therapies)
     if therapies is None:
         abort(404, description = "Error: Registros no encontrados.")
     return jsonify(therapies)
 
 def insert_therapy():
     data = request.get_json()
+    print(data)
     if not data:
         abort(400, description="Error: No se proporcionaron datos.")
 
@@ -29,16 +29,16 @@ def insert_therapy():
 
 
     stretcher_number = validated_user_therapy['stretcher_number']
-    id_balance = validated_user_therapy['balance_id']
-    id_patient = validated_user_therapy['patient_id']
-    id_nurse = validated_user_therapy['nurse_id']
-    id_user = validated_user_therapy['user_id']
+    balance_id = validated_user_therapy['balance_id']
+    patient_id = validated_user_therapy['patient_id']
+    nurse_id = validated_user_therapy['nurse_id']
+    user_id = validated_user_therapy['user_id']
 
 
-    if not all([stretcher_number, id_balance, id_patient, id_nurse, id_user]):
+    if not all([stretcher_number, balance_id, patient_id, nurse_id, user_id]):
         abort(400, description="Error: Faltan datos necesarios para la creacion de la terapia.")
 
-    newTherapy = Therapy(stretcher_number, id_balance, id_patient, id_nurse, id_user)
+    newTherapy = Therapy(stretcher_number, balance_id, patient_id, nurse_id, user_id)
     
     
 
