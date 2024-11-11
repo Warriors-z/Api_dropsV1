@@ -161,7 +161,7 @@ async def send_credentials(name, last_name, destiny_email, username, password):
             </div>
             <div class="footer">
                 <p>Saludos,<br>
-                El equipo de soporte de JAY.DEV</p>
+                El equipo de soporte.</p>
                 <p>Este correo es confidencial y solo debe ser usado por el destinatario.</p>
             </div>
         </div>
@@ -196,8 +196,15 @@ def user_by_id(user_id):
         abort(404, description="Error: Registro no encontrado.")
     return jsonify(user)
 
+def check_exists_user_ci(ci):
+    exist_ci = check_exists_user(ci)
+    if exist_ci is not None:
+        return jsonify({"ci":exist_ci})
+    return jsonify({"ci":exist_ci})
+
 def insert_user():
     data = request.get_json()
+
 
     if not data:
         abort(400, description="Error: No se proporcionaron datos.")
@@ -209,8 +216,8 @@ def insert_user():
 
     name = validated_user_data['name']
     last_name = validated_user_data['last_name']
-    second_last_name = validated_user_data['second_last_name'] or None
-    phone = validated_user_data['phone'] or None
+    second_last_name = validated_user_data['second_last_name'] or ''
+    phone = validated_user_data['phone'] or ''
     email = validated_user_data['email']
     address = validated_user_data['address']
     birth_date = validated_user_data['birth_date']
@@ -218,12 +225,15 @@ def insert_user():
     ci = validated_user_data['ci']
     role_id = validated_user_data['role_id']
 
+    
+
     username, password, password_to_send = generate_credentials(name, last_name)
 
-    if not all([name, last_name, second_last_name,email,address,birth_date, genre, ci, role_id, phone]):
+    if not all([name, last_name,email,address,birth_date, genre, ci, role_id, phone]):
         abort(400, description="Error: Faltan datos necesarios para la creacion del Usuario.")
 
-    user = User(name, last_name, email, address, birth_date, genre, ci, second_last_name, role_id, phone, user_id=None, user_name=username, password=password)
+
+    user = User(name, last_name, email, address, birth_date, genre, ci, second_last_name,role_id, phone,user_id=None, user_name=username, password=password)
 
     ci_exists = check_exists_user(ci)
 
@@ -241,6 +251,8 @@ def insert_user():
 def edit_user():
     try:
         data = request.get_json()
+
+        print(data)
     except Exception as e:
         abort(400, description="Error de formato JSON: " + str(e))
 
@@ -255,8 +267,8 @@ def edit_user():
     user_id = validated_user_data['user_id']
     name = validated_user_data['name']
     last_name = validated_user_data['last_name']
-    second_last_name = validated_user_data['second_last_name'] or None
-    phone = validated_user_data['phone'] or None
+    second_last_name = validated_user_data['second_last_name'] or ''
+    phone = validated_user_data['phone'] or ''
     email = validated_user_data['email']
     address = validated_user_data['address']
     birth_date = validated_user_data['birth_date']
@@ -264,7 +276,7 @@ def edit_user():
     ci = validated_user_data['ci']
     role_id = validated_user_data['role_id']
 
-    if not all([user_id, name, last_name, second_last_name, phone, email,address, birth_date, ci, role_id]):
+    if not all([user_id, name, last_name, email,address, birth_date, ci, role_id]):
         abort(400, description="Error: Faltan datos necesarios para la edicion del Usuario")
 
     user = User(name, last_name, email, address, birth_date, genre, ci,second_last_name, role_id, phone,user_id)

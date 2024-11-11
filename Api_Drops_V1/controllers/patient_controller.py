@@ -22,8 +22,15 @@ def patient_by_id(patient_id):
         abort(404, description="Error: Registro no encontrado.")
     return jsonify(patient)
 
+def check_exists_patient_ci(ci):
+    exists_ci = check_exists_patient(ci)
+    if exists_ci is not None:
+        return jsonify({"ci": exists_ci})
+    return jsonify({"ci": exists_ci})
+
 def inser_patient():
     data = request.get_json()
+    print(data)
 
     if not data:
         abort(400, description="Error: No se proporcionaron datos.")
@@ -44,7 +51,7 @@ def inser_patient():
     if not all([name, last_name, birth_date, ci, user_id]):
         abort(400,description="Error: Faltan datos necesarios para la creacion del Paciente.")
 
-    patient = Patient(name, last_name, second_last_name, birth_date, genre, ci, user_id)
+    patient = Patient(name, last_name, birth_date, genre, ci,user_id, second_last_name)
 
     patient_ci_exists = check_exists_patient(ci)
 
@@ -59,6 +66,7 @@ def inser_patient():
 
 def edit_patient():
     data = request.get_json()
+    print(data)
 
     if not data:
         abort(400, description="Error: No se proporcionaron datos.")
@@ -71,16 +79,18 @@ def edit_patient():
     patient_id = validated_patient_data['patient_id']
     name = validated_patient_data['name']
     last_name = validated_patient_data['last_name']
-    second_last_name = validated_patient_data['second_last_name']
+    second_last_name = validated_patient_data['second_last_name'] 
     birth_date = validated_patient_data['birth_date']
     genre = validated_patient_data['genre']
     ci = validated_patient_data['ci']
     user_id = validated_patient_data['user_id']
 
+    
+
     if not all([patient_id, name, last_name, birth_date, ci, user_id]):
         abort(400,description="Error: Faltan datos necesarios para la edicion del Paciente.")
 
-    patient = Patient(name, last_name, second_last_name, birth_date, genre,ci, user_id, patient_id)
+    patient = Patient(name, last_name, birth_date, genre,ci, user_id, second_last_name,patient_id)
 
     if not update_patient(patient):
         abort(500, description="Error: Fallo interno del servidor durante la actualizacion del paciente.")

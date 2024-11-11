@@ -59,10 +59,10 @@ def create_patient(patient):
     try:
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
-            print(patient.name,patient.last_name,patient.second_last_name,patient.birth_date, patient.genre,patient.ci,patient.user_id)
+            print(patient.user_id)
             cursor.execute("""
                     INSERT INTO Patient(name,lastName,secondLastName,birthDate, genre, ci, userID)
-                    VALUES (%s,%s,%s,%s,%s,%s,%s)
+                    VALUES (%s,%s,NULLIF(%s,''),%s,%s,%s,%s)
                     """,(patient.name,patient.last_name,patient.second_last_name,patient.birth_date, patient.genre,patient.ci,patient.user_id,))
         db.commit()
         return True
@@ -77,9 +77,10 @@ def update_patient(patient):
     try:
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
+            print(f"El apellido es {patient.second_last_name}")
             cursor.execute("""
                     UPDATE Patient
-                    SET name = %s, lastName = %s, secondLastName = %s, birthDate = %s, genre = %s ,ci = %s, userID = %s, lastUpdate = CURRENT_TIMESTAMP
+                    SET name = %s, lastName = %s, secondLastName = NULLIF(%s,''), birthDate = %s, genre = %s ,ci = %s, userID = %s, lastUpdate = CURRENT_TIMESTAMP
                     WHERE idPatient = %s
                     """,(patient.name,patient.last_name, patient.second_last_name, patient.birth_date, patient.genre, patient.ci, patient.user_id, patient.patient_id,))
         db.commit()
