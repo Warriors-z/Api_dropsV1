@@ -42,7 +42,6 @@ def check_exists_smart(smart_rfid):
                 return None
     except Exception as e:
         print(f"Ocurrió un error: {e}")
-        return None
     finally:
         db.close()
 

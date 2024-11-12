@@ -6,7 +6,8 @@ from ..controllers.smart_controller import(
     insert_smart,
     edit_smart,
     remove_smart,
-    asign_smart
+    asign_smart,
+    verify_exist_smart_code
 )
 
 smart_bp = Blueprint('smart',__name__, url_prefix='/api/v1')
@@ -58,6 +59,36 @@ def get_smart_by_id(smart_id):
         description: Manilla no encontrada  
     """
     return smart_by_id(smart_id)
+
+@smart_bp.route('/smart/checkExist/<string:smart_code>', methods=['GET'])
+#@token_required
+#@role_required([1])
+def verify_exist_smart(smart_code):
+    """
+    Verificar si existe la manilla
+    ---
+    tags:
+      - Manillas
+    parameters:
+      - name: smart_code
+        in: path
+        type: string
+        required: true
+        description: CODIGO de la manilla
+    responses:
+      200:
+        description: Datos de la manilla
+      401:
+        description: Token de autenticación no válido
+      403:
+        description: Permiso insuficiente
+      500:
+        description: Error interno del servidor
+      400:
+        description: Fallo en verificacion de la manilla
+    """
+    return verify_exist_smart_code(smart_code)
+
 
 @smart_bp.route('/smart/create', methods=['POST'])
 #@token_required
