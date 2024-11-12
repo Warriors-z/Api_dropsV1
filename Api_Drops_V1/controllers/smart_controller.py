@@ -23,6 +23,12 @@ def smart_by_id(smart_id):
         abort(404, description="Error: Registro no encontrado.")
     return jsonify(smart)
 
+def verify_exist_smart_code(code):
+    exist_smart = check_exists_smart(code)
+    if exist_smart is not None:
+        return jsonify({'code_rfid': exist_smart})
+    return jsonify({'code_rfid': exist_smart})
+
 def insert_smart():
     data = request.get_json()
 

@@ -22,6 +22,12 @@ def balance_by_id(balance_id):
         abort(404, description="Error: Registro no encontrado.")
     return jsonify(balance)
 
+def verify_exist_balance_code(code):
+    exist_code = check_exists_balance(code)
+    if exist_code is not None:
+        return jsonify({'balance_code':exist_code})
+    return jsonify({'balance_code':exist_code})
+
 def insert_balance():
     data = request.get_json()
 
