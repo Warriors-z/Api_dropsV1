@@ -38,10 +38,9 @@ def encrypt_password(password):
     return encrypted_password
 
 # Creacion del Token
-def create_jwt_token(user_id, username, role_id, expires_in=3600):
+def create_jwt_token( username, role_id, expires_in=3600):
     expiration = datetime.datetime.utcnow() + datetime.timedelta(hours=expires_in);
     payload = {
-        "user_id": user_id,
         "username": username,
         "role_id": role_id,
         "exp": expiration
@@ -52,7 +51,6 @@ def create_jwt_token(user_id, username, role_id, expires_in=3600):
 # Metodo para verificar la contraseña
 def verify_credentials():
     data = request.get_json()
-
     if not data:
         abort(404, description="Error: No se proporcionaron las crendenciales.")
 
@@ -61,22 +59,22 @@ def verify_credentials():
     except ValidationError as err:
         return jsonify(err.messages), 400  
 
-
-    user_id = validated_data['user_id']
     username = validated_data['username']
     password = validated_data['password']
     role_id = validated_data['role_id']
+    credentials = check_credentials(username)
+    
 
-    credentials = check_credentials(user_id)
-
-    if credentials:
+    if credentials and isinstance(credentials, dict):
         is_valid = bcrypt.checkpw(password.encode('utf-8'), credentials['password'].encode('utf-8'))
 
-        if username == credentials['userName'] and is_valid and role_id == credentials['idRole']:
-            access_token = create_jwt_token(user_id, username, role_id)
+        if username == credentials['username'] and is_valid and role_id == credentials['idRole']:
+            access_token = create_jwt_token(username, role_id)
             return jsonify({
                 "message": "Credenciales Válidas.",
-                "access_token": access_token 
+                "access_token": access_token, 
+                "role_id": credentials['idRole'],
+                "user_id": credentials['idUser']
             }), 200
 
     return jsonify({"message": "Credenciales Inválidas."}), 404

@@ -1,11 +1,11 @@
 import bcrypt
 from ..config import get_db_connection
 
-def check_credentials(user_id):
+def check_credentials(username):
     try:
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
-            cursor.execute(""" CALL GetCredentials(%s) """, (user_id,))
+            cursor.execute(""" CALL GetCredentials(%s); """, (username,))
             credentials = cursor.fetchone()
     except Exception as e:
         print(f"Ocurrio un error: {e}")

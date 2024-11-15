@@ -269,7 +269,6 @@ def login():
         schema:
           id: Login
           required:
-            - user_id
             - username
             - password
             - role_id
@@ -280,9 +279,6 @@ def login():
             password:
               type: string
               description: Contraseña del usuario
-            user_id: 
-                type: integer
-                description: ID del usuario
             role_id:
                 type: integer
                 description: Rol del Usuario
