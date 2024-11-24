@@ -78,6 +78,7 @@ def assignment_smart(smart):
     try:
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
+            
             cursor.execute("""
                 UPDATE Smart 
                 SET idUser = %s, lastUpdate = CURRENT_TIMESTAMP
@@ -96,6 +97,7 @@ def update_smart(smart):
     try:
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
+            
             cursor.execute("""
                 UPDATE Smart
                 SET codeRFID = %s, idUser = %s, available = %s,lastUpdate = CURRENT_TIMESTAMP

@@ -108,9 +108,12 @@ def edit_smart():
     available = validated_smart_data['available']
     user_id = validated_smart_data['user_id']
 
-    if not all([smart_id, code_rfid, user_id]):
+    if not all([smart_id, code_rfid]):
         abort(400, description="Error: Faltan datos necesarios para la actualización de la Manilla.")
 
+
+    if (user_id == 0):
+        user_id = None
 
     smart_updated = Smart(code_rfid, available,smart_id,user_id)
 
