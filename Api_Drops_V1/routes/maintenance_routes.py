@@ -8,8 +8,8 @@ from ..controllers.maintenance_controller import(
 maintenance_bp = Blueprint('maintenance', __name__, url_prefix='/api/v1')
 
 @maintenance_bp.route('/maintenance/create', methods=['POST'])
-#@token_required
-#@role_required([3])
+@token_required
+@role_required([3])
 def create_maintenance():
     """
     Registrar nuevo mantenimiento
@@ -50,8 +50,8 @@ def create_maintenance():
     return insert_maintenance()
 
 @maintenance_bp.route('/maintenance/getBalance/<string:balance_code>', methods=['GET'])
-#@token_required
-#@role_required([3])
+@token_required
+@role_required([3])
 def get_balance_id_to_maintenance(balance_code):
     """
     Obtener el ID de la balanza a calibrar

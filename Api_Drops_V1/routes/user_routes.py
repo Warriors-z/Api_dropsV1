@@ -13,8 +13,8 @@ from ..controllers.user_controller import(
 user_bp = Blueprint('user', __name__, url_prefix='/api/v1')
 
 @user_bp.route('/users', methods=['GET'])
-#@token_required
-#@role_required([1]) # Solo administradores pueden acceder
+@token_required
+@role_required([1])
 def get_users():
     """
     Obtener lista de usuarios
@@ -33,8 +33,8 @@ def get_users():
 
 
 @user_bp.route('/user/checkExist/<string:user_ci>', methods=['GET'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1])
 def verify_exist_ci(user_ci):
     """
     Verificar si existe el usuario
@@ -62,8 +62,8 @@ def verify_exist_ci(user_ci):
     return check_exists_user_ci(user_ci)
 
 @user_bp.route('/user/byId/<int:user_id>', methods=['GET'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1])
 def get_user_by_id(user_id):
     """
     Obtener usuario por ID
@@ -87,8 +87,8 @@ def get_user_by_id(user_id):
     return user_by_id(user_id)
 
 @user_bp.route('/user/create', methods=['POST'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1])
 def create_user():
     """
     Crear un nuevo usuario
@@ -156,8 +156,8 @@ def create_user():
     return insert_user()
 
 @user_bp.route('/user/update', methods=['PUT'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1])
 def modify_user():
     """
     Actualizar un usuario existente
@@ -229,8 +229,8 @@ def modify_user():
     return edit_user()
 
 @user_bp.route('/user/delete/<int:user_id>', methods=['DELETE'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1])
 def delete_user(user_id):
     """
     Eliminar un usuario

@@ -8,7 +8,8 @@ from ..models.smart import (
     update_smart,
     delete_smart,
     check_exists_smart,
-    assignment_smart
+    assignment_smart,
+    get_nurses_whithout_smart
 )
 
 def list_smarts():
@@ -16,6 +17,12 @@ def list_smarts():
     if smarts is None:
         abort(404, description = "Error: Registros no encontrados.")
     return jsonify(smarts)
+
+def list_nurses_without_smarts():
+    nurses = get_nurses_whithout_smart()
+    if nurses is None:
+        abort(404, description="Error: Registros no encontrados.")
+    return jsonify(nurses)
 
 def smart_by_id(smart_id):
     smart = get_smart_by_id(smart_id)

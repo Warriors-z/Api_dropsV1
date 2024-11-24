@@ -19,12 +19,10 @@ def token_required(f):
             return jsonify({"message": "Token de autenticación es requerido."}), 401
 
         try:
-            # Asegurarse de que el token tiene el prefijo 'Bearer'
             token = token.split(" ")
             if len(token) != 2 or token[0] != "Bearer":
                 return jsonify({"message": "Formato de token inválido. Debe ser 'Bearer <token>'"}), 401
             
-            # Usar el segundo segmento como el token JWT
             token = token[1]
             decoded_token = jwt.decode(token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
             request.user = decoded_token

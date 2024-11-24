@@ -35,6 +35,7 @@ def insert_maintenance():
 
 def maintenance_balance_by_code(balance_code):
     maintenance = get_balance_to_maintenance_by_code(balance_code)
+    print(maintenance)
     if maintenance is None:
         abort(404, description = "Error: Registro no encontrado.")
     return jsonify(maintenance)
