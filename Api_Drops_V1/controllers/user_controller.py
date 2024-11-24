@@ -38,7 +38,7 @@ def encrypt_password(password):
     return encrypted_password
 
 # Creacion del Token
-def create_jwt_token( username, role_id, expires_in=3600):
+def create_jwt_token( username, role_id, expires_in=4):
     expiration = datetime.datetime.utcnow() + datetime.timedelta(hours=expires_in);
     payload = {
         "username": username,

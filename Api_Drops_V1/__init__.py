@@ -45,4 +45,8 @@ def create_api_drops():
     from .routes.user_routes import user_bp
     api_drops_v1.register_blueprint(user_bp)
 
+    # Rutas Mantenimiento 
+    from .routes.maintenance_routes import maintenance_bp
+    api_drops_v1.register_blueprint(maintenance_bp)
+
     return api_drops_v1

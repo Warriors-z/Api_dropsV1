@@ -10,8 +10,8 @@ from ..controllers.therapy_controller import (
 therapy_bp = Blueprint('therapy',__name__, url_prefix='/api/v1')
 
 @therapy_bp.route('/therapies', methods=['GET'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1,2])
 def get_therapies():
     """
     Obtener lista de terapias
@@ -30,8 +30,8 @@ def get_therapies():
     return list_therapies()
 
 @therapy_bp.route('/therapy/create',methods=['POST'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1,2])
 def create_therapy():
     """
     Crear una nueva Therapia
@@ -79,8 +79,8 @@ def create_therapy():
     return insert_therapy()
 
 @therapy_bp.route('/therapy/patients', methods=['GET'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1,2])
 def get_patients():
     """
     Obtener lista de pacientes
@@ -98,8 +98,8 @@ def get_patients():
     return list_patients()
 
 @therapy_bp.route('/therapy/nurses',methods=['GET'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1,2])
 def get_nurses():
     """
     Obtener lista de enfermeros
@@ -117,8 +117,8 @@ def get_nurses():
     return list_nurses()
 
 @therapy_bp.route('/therapy/balances',methods=['GET'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1,2])
 def get_balances():
     """
     Obtener lista de balanzas
@@ -136,8 +136,8 @@ def get_balances():
     return list_balances()
 
 @therapy_bp.route('/therapy/info/<int:therapy_id>',methods=['GET'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1,2])
 def get_therapy_info_by_id(therapy_id):
     """
     Obtener informacion de la therapia por ID
