@@ -4,29 +4,40 @@ def get_all_therapies():
     try:
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
-            cursor.execute(""" CALL GetActiveTherapies(); """)
-            therapies = cursor.fetchall() 
+            cursor.callproc("GetActiveTherapies")
+            therapies = []
+            for result_set in cursor.stored_results():
+                therapies = result_set.fetchall() 
+                break 
     except Exception as e:
         print(f"Ocurrio un error: {e}")
+        therapies = None
     finally:
         db.close()
-
     return therapies
+
 
 def create_therapy(therapy):
     try:
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
-            cursor.execute(""" CALL InsertTherapy(%s,%s,%s,%s,%s);""", 
+            cursor.callproc("InsertTherapy", 
                 (therapy.stretcher_number, therapy.balance_id, therapy.nurse_id, therapy.user_id, therapy.patient_id))
-        db.commit()
-        return True
+            result = None
+            for result_set in cursor.stored_results():
+                result = result_set.fetchone()
+                print(result)
+            
+            db.commit()
+        return result
     except Exception as e:
         db.rollback()
         print(f"Ocurrió un error: {e}")
-        return False
+        return None
     finally:
         db.close()
+
+
 
 def get_info_therapy(therapy_id):
     try:
