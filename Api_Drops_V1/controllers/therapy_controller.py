@@ -42,11 +42,10 @@ def insert_therapy():
     
     
 
-    if not create_therapy(newTherapy):
+    if create_therapy(newTherapy) is None:
         abort(500, description="Error interno del servidor durante la creacion de la terapia!")
-    return jsonify({
-        "message": "Creacion de Terapia Exitosa!",
-    }), 201
+    
+    return jsonify(create_therapy(newTherapy)), 201
 
 def list_nurses():
     nurses = get_all_nurses()
