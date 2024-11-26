@@ -61,7 +61,7 @@ def get_balance_by_id(balance_id):
 
 @balance_bp.route('/balance/checkExist/<string:balance_code>', methods=['GET'])
 @token_required
-@role_required([1])
+@role_required([1,3])
 def verify_exist_balance(balance_code):
     """
     Verificar si existe la balanza
