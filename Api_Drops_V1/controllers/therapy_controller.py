@@ -7,7 +7,9 @@ from ..models.therapy import (
     get_all_nurses, 
     get_all_patients, 
     get_all_balances,
-    get_info_therapy
+    get_info_therapy,
+    get_all_therapies_nurses,
+    get_all_therapies_asign
 )
 
 def list_therapies():
@@ -18,7 +20,6 @@ def list_therapies():
 
 def insert_therapy():
     data = request.get_json()
-    print(data)
     if not data:
         abort(400, description="Error: No se proporcionaron datos.")
 
@@ -27,25 +28,35 @@ def insert_therapy():
     except ValidationError as err:
         return jsonify(err.messages), 400
 
-
     stretcher_number = validated_user_therapy['stretcher_number']
     balance_id = validated_user_therapy['balance_id']
     patient_id = validated_user_therapy['patient_id']
     nurse_id = validated_user_therapy['nurse_id']
     user_id = validated_user_therapy['user_id']
 
-
     if not all([stretcher_number, balance_id, patient_id, nurse_id, user_id]):
         abort(400, description="Error: Faltan datos necesarios para la creacion de la terapia.")
 
     newTherapy = Therapy(stretcher_number, balance_id, patient_id, nurse_id, user_id)
-    
-    
 
-    if create_therapy(newTherapy) is None:
+    result = create_therapy(newTherapy)
+    if result is None:
         abort(500, description="Error interno del servidor durante la creacion de la terapia!")
-    
-    return jsonify(create_therapy(newTherapy)), 201
+
+    return jsonify(result), 201
+
+
+def list_therapies_nurses(nurse_id):
+    therapies_nurse = get_all_therapies_nurses(nurse_id)
+    if therapies_nurse is None:
+        abort(404, description="Error: Registros no encontrados.")
+    return jsonify(therapies_nurse)
+
+def list_therapies_asign():
+    therapies_asign = get_all_therapies_asign()
+    if therapies_asign is None:
+        abort(404, description="Error: Registros no encontrados.")
+    return jsonify(therapies_asign)
 
 def list_nurses():
     nurses = get_all_nurses()
