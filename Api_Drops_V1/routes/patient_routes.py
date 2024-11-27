@@ -13,7 +13,7 @@ patient_bp = Blueprint('patient',__name__, url_prefix='/api/v1')
 
 @patient_bp.route('/patients', methods=['GET'])
 @token_required
-@role_required([1])
+@role_required([1,4])
 def get_patients():
     """
     Obtener lista de pacientes
@@ -34,7 +34,7 @@ def get_patients():
 
 @patient_bp.route('/patient/byId/<int:patient_id>', methods=['GET'])
 @token_required
-@role_required([1])
+@role_required([1,4])
 def get_patient_by_id(patient_id):
     """
     Obtener paciente por ID
@@ -61,7 +61,7 @@ def get_patient_by_id(patient_id):
 
 @patient_bp.route('/patient/checkExist/<string:patient_ci>', methods=['GET'])
 @token_required
-@role_required([1])
+@role_required([1,4])
 def verify_exist_ci(patient_ci):
   """
     Verificar si existe el paciente
@@ -89,7 +89,7 @@ def verify_exist_ci(patient_ci):
   return check_exists_patient_ci(patient_ci)
 @patient_bp.route('/patient/create', methods=['POST'])
 @token_required
-@role_required([1])
+@role_required([1,4])
 def create_patient():
     """
     Crear un nuevo paciente
@@ -146,7 +146,7 @@ def create_patient():
 
 @patient_bp.route('/patient/update', methods=['PUT'])
 @token_required
-@role_required([1])
+@role_required([1,4])
 def modify_patient():
     """
     Actualizar un paciente existente
@@ -207,7 +207,7 @@ def modify_patient():
 
 @patient_bp.route('/patient/delete', methods=['DELETE'])
 @token_required
-@role_required([1])
+@role_required([1,4])
 def delete_patient():
     """
     Eliminar una paciente existente

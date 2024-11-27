@@ -15,7 +15,7 @@ smart_bp = Blueprint('smart',__name__, url_prefix='/api/v1')
 
 @smart_bp.route('/smarts', methods=['GET'])
 @token_required
-@role_required([1])
+@role_required([1,4])
 def get_smarts():
     """
     Obtener lista de Manillas
@@ -36,7 +36,7 @@ def get_smarts():
 
 @smart_bp.route('/nurses/whithout/smarts', methods=['GET'])
 @token_required
-@role_required([1])
+@role_required([1,4])
 def get_all_nurses_whithout_smarts():
     """
     Obtener lista de Enfermeros sin manillas asignadas
@@ -58,7 +58,7 @@ def get_all_nurses_whithout_smarts():
 
 @smart_bp.route('/smart/byId/<int:smart_id>', methods=['GET'])
 @token_required
-@role_required([1])
+@role_required([1,4])
 def get_smart_by_id(smart_id):
     """
     Obtener manilla por ID
@@ -85,7 +85,7 @@ def get_smart_by_id(smart_id):
 
 @smart_bp.route('/smart/checkExist/<string:smart_code>', methods=['GET'])
 @token_required
-@role_required([1])
+@role_required([1,4])
 def verify_exist_smart(smart_code):
     """
     Verificar si existe la manilla
@@ -115,7 +115,7 @@ def verify_exist_smart(smart_code):
 
 @smart_bp.route('/smart/create', methods=['POST'])
 @token_required
-@role_required([1])
+@role_required([1,4])
 def create_smart():
     """
     Crear nueva manilla
@@ -146,7 +146,7 @@ def create_smart():
 
 @smart_bp.route('/smart/update', methods=['PUT'])
 @token_required
-@role_required([1])
+@role_required([1,4])
 def modify_smart():
     """
     Actualizar una manilla existente
@@ -191,7 +191,7 @@ def modify_smart():
 
 @smart_bp.route('/smart/asign', methods=['PUT'])
 @token_required
-@role_required([1])
+@role_required([1,4])
 def asign_a_smart():
     """
     Asignar una manilla existente
@@ -228,7 +228,7 @@ def asign_a_smart():
 
 @smart_bp.route('/smart/delete/<int:smart_id>', methods=['DELETE'])
 @token_required
-@role_required([1])
+@role_required([1,4])
 def delete_smart(smart_id):
     """
     Eliminar una manilla existente
