@@ -43,7 +43,6 @@ def check_exists_balance(balance_code):
                 return None
     except Exception as e:
         print(f"Ocurrió un error: {e}")
-        return None
     finally:
         db.close()
 
@@ -52,8 +51,7 @@ def create_balance(balance):
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
             cursor.execute("""
-                INSERT INTO Balance (balanceCode, userID)
-                VALUES (%s,%s) 
+                CALL InsertBalance(%s,%s);
                 """,(balance.balance_code,balance.user_id,))
         db.commit()
         return True

@@ -24,8 +24,20 @@ def get_smart_by_id(smart_id):
         smart = None
     finally:
         db.close()
-
     return smart
+
+def get_nurses_whithout_smart():
+    try:
+        db = get_db_connection()
+        with db.cursor(dictionary=True) as cursor:
+            cursor.execute(""" CALL GetNursesWithoutSmarts(); """)
+            nurses = cursor.fetchall()
+    except Exception as e:
+        print(f"Ocurrio un error: {e}")
+        nurses = []
+    finally:
+        db.close()
+    return nurses
 
 def check_exists_smart(smart_rfid):
     try:
@@ -42,7 +54,6 @@ def check_exists_smart(smart_rfid):
                 return None
     except Exception as e:
         print(f"Ocurrió un error: {e}")
-        return None
     finally:
         db.close()
 
@@ -67,6 +78,7 @@ def assignment_smart(smart):
     try:
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
+            
             cursor.execute("""
                 UPDATE Smart 
                 SET idUser = %s, lastUpdate = CURRENT_TIMESTAMP
@@ -85,6 +97,7 @@ def update_smart(smart):
     try:
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
+            
             cursor.execute("""
                 UPDATE Smart
                 SET codeRFID = %s, idUser = %s, available = %s,lastUpdate = CURRENT_TIMESTAMP

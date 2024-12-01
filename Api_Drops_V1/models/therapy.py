@@ -4,41 +4,84 @@ def get_all_therapies():
     try:
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
-            cursor.execute(""" CALL GetActiveTherapies(); """)
-            therapies = cursor.fetchall() 
+            cursor.callproc("GetActiveTherapies")
+            therapies = []
+            for result_set in cursor.stored_results():
+                therapies = result_set.fetchall() 
+                break 
     except Exception as e:
         print(f"Ocurrio un error: {e}")
+        therapies = None
     finally:
         db.close()
-
     return therapies
+
 
 def create_therapy(therapy):
     try:
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
-            cursor.execute(""" CALL InsertTherapy(%s,%s,%s,%s,%s);""", 
+            print(therapy.stretcher_number)
+            print(therapy.balance_id)
+            print(therapy.nurse_id)
+            print(therapy.user_id)
+            print(therapy.patient_id)
+            cursor.callproc("InsertTherapy", 
                 (therapy.stretcher_number, therapy.balance_id, therapy.nurse_id, therapy.user_id, therapy.patient_id))
-        db.commit()
-        return True
+            result = None
+            for result_set in cursor.stored_results():
+                result = result_set.fetchone()
+                print(result)
+            db.commit()
+        return result
     except Exception as e:
         db.rollback()
         print(f"Ocurrió un error: {e}")
-        return False
+        return None
     finally:
         db.close()
 
 def get_info_therapy(therapy_id):
+    therapy = None
     try:
         db = get_db_connection()
         with db.cursor(dictionary=True) as cursor:
-            cursor.execute(""" CALL GetTherapyDetails(%s); """, (therapy_id,))
-            therapy = cursor.fetchone()
+            cursor.callproc("""GetTherapyDetails""", (therapy_id,))
+            for result in cursor.stored_results():
+                therapy = result.fetchone()
     except Exception as e:
         print(f"Ocurrio un error: {e}")
     finally:
         db.close()
     return therapy
+
+def get_all_therapies_nurses(nurse_id):
+    therapies = []
+    try: 
+        db = get_db_connection()
+        with db.cursor(dictionary=True) as cursor:
+            cursor.callproc("""GetNurseTherapies""", (nurse_id,))
+            for result in cursor.stored_results():
+                therapies = result.fetchall()
+    except Exception as e:
+        print(f"Ocurrio un error: {e}")
+    finally:
+        db.close()
+    return therapies
+
+def get_all_therapies_asign():
+    therapies = []
+    try: 
+        db = get_db_connection()
+        with db.cursor(dictionary=True) as cursor:
+            cursor.callproc("""GetAllNurseTherapies""")
+            for result in cursor.stored_results():
+                therapies = result.fetchall()
+    except Exception as e:
+        print(f"Ocurrio un error: {e}")
+    finally:
+        db.close()
+    return therapies
 
 def get_all_nurses():
     try:

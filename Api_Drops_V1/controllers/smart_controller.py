@@ -8,7 +8,8 @@ from ..models.smart import (
     update_smart,
     delete_smart,
     check_exists_smart,
-    assignment_smart
+    assignment_smart,
+    get_nurses_whithout_smart
 )
 
 def list_smarts():
@@ -17,11 +18,23 @@ def list_smarts():
         abort(404, description = "Error: Registros no encontrados.")
     return jsonify(smarts)
 
+def list_nurses_without_smarts():
+    nurses = get_nurses_whithout_smart()
+    if nurses is None:
+        abort(404, description="Error: Registros no encontrados.")
+    return jsonify(nurses)
+
 def smart_by_id(smart_id):
     smart = get_smart_by_id(smart_id)
     if smart is None:
         abort(404, description="Error: Registro no encontrado.")
     return jsonify(smart)
+
+def verify_exist_smart_code(code):
+    exist_smart = check_exists_smart(code)
+    if exist_smart is not None:
+        return jsonify({'code_rfid': exist_smart})
+    return jsonify({'code_rfid': exist_smart})
 
 def insert_smart():
     data = request.get_json()
@@ -95,9 +108,12 @@ def edit_smart():
     available = validated_smart_data['available']
     user_id = validated_smart_data['user_id']
 
-    if not all([smart_id, code_rfid, user_id]):
+    if not all([smart_id, code_rfid]):
         abort(400, description="Error: Faltan datos necesarios para la actualización de la Manilla.")
 
+
+    if (user_id == 0):
+        user_id = None
 
     smart_updated = Smart(code_rfid, available,smart_id,user_id)
 

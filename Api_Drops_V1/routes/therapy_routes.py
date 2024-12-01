@@ -4,14 +4,16 @@ from ..controllers.therapy_controller import (
     list_therapies, 
     insert_therapy, 
     list_balances, list_nurses, list_patients,
-    info_therapy
+    info_therapy,
+    list_therapies_nurses,
+    list_therapies_asign
 )
 
 therapy_bp = Blueprint('therapy',__name__, url_prefix='/api/v1')
 
 @therapy_bp.route('/therapies', methods=['GET'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1,2,4])
 def get_therapies():
     """
     Obtener lista de terapias
@@ -30,8 +32,8 @@ def get_therapies():
     return list_therapies()
 
 @therapy_bp.route('/therapy/create',methods=['POST'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1,2,4])
 def create_therapy():
     """
     Crear una nueva Therapia
@@ -79,8 +81,8 @@ def create_therapy():
     return insert_therapy()
 
 @therapy_bp.route('/therapy/patients', methods=['GET'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1,2,4])
 def get_patients():
     """
     Obtener lista de pacientes
@@ -98,8 +100,8 @@ def get_patients():
     return list_patients()
 
 @therapy_bp.route('/therapy/nurses',methods=['GET'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1,2,4])
 def get_nurses():
     """
     Obtener lista de enfermeros
@@ -117,8 +119,8 @@ def get_nurses():
     return list_nurses()
 
 @therapy_bp.route('/therapy/balances',methods=['GET'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1,2,4])
 def get_balances():
     """
     Obtener lista de balanzas
@@ -136,8 +138,8 @@ def get_balances():
     return list_balances()
 
 @therapy_bp.route('/therapy/info/<int:therapy_id>',methods=['GET'])
-#@token_required
-#@role_required([1])
+@token_required
+@role_required([1,2,4])
 def get_therapy_info_by_id(therapy_id):
     """
     Obtener informacion de la therapia por ID
@@ -159,3 +161,47 @@ def get_therapy_info_by_id(therapy_id):
         description: Permiso insuficiente
     """
     return info_therapy(therapy_id)
+
+@therapy_bp.route('/therapies/nurses/<int:nurse_id>', methods=['GET'])
+@token_required
+@role_required([2,4])
+def get_therapies_nurse_by_id(nurse_id):
+    """
+    Obtener therapias asignadas al enfermero por su ID
+    ---
+    tags:
+      - Terapias
+    parameters:
+      - name: nurse_id
+        in: path
+        type: integer
+        required: true
+        description: ID del enfermero
+    responses:
+      200:
+        description: Datos de las terapias
+      401:
+        description: Token de autenticación no válido
+      403:
+        description: Permiso insuficiente
+    """
+    return list_therapies_nurses(nurse_id)
+
+@therapy_bp.route('/therapies/asign', methods=['GET'])
+# @token_required
+# @role_required([4])
+def get_therapies_assignment():
+    """
+    Obtener lista de todas las terapias asignadas
+    ---
+    tags:
+      - Terapias
+    responses:
+      200:
+        description: Lista de terapias asignadas
+      401:
+        description: Token de autenticación no válido
+      403:
+        description: Permiso insuficiente
+    """
+    return list_therapies_asign()
