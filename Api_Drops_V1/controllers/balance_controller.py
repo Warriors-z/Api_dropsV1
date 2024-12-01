@@ -45,7 +45,7 @@ def insert_balance():
     if not all([balance_code, user_id]):
         abort(400, description="Error: Faltan datos necesarios para la creacion de la Balanza.")
     
-    balance = Balance(balance_code)
+    balance = Balance(balance_code, user_id)
 
     balance_code_exists = check_exists_balance(balance_code)
 
